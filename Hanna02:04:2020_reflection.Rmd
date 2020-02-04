@@ -1,0 +1,52 @@
+---
+title: "Reflection on Harrison and Rubenfeld (1978).Rmd"
+author: "Abby Hanna"
+header-includes:
+    - \usepackage{setspace}\doublespacing
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions for Use
+
+This template is designed for use in writing a reflection on an empirical paper (e.g. one that uses regression analysis). 
+
+Delete this section when you have completed your assignment. Follow these steps each time you complete a reflection paper on an article we read.
+
+1. Make a copy of this template and name it authorDate_reflection.Rmd.
+2. Open the file and change the author and title in the block at the top (called the YAML) to your name and "Reflection on Author (date)" where Author and (date) are the standard parenthetical reference to the article you are summarizing. 
+3. Write your reflection in the document below, making sure to separate **description** from **analysis**. You may find [this comparison chart](https://www.nottingham.ac.uk/studentservices/documents/description-vs-analysis---learnhigher.pdf) useful in helping you distinguish these two components.
+4. When you have completed your writing, click on the Knit button to create a PDF.
+5. Use the Git window to add both your new .Rmd file and the PDF to Git. Commit them to your local repository with the message "Submitting reflection on <Author (date)>" where Author (date) is a citation to the article you are discussing. *Note: feel free to commit and/or push intermediate versions as well, but save the message above for your final version.*
+6. Push the changes to GitHub before the submission deadline (generally before class on the day we are discussing the reading).
+
+### Citation
+
+#\*Harrison, D., & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. Journal of Environmental Economics and Management, 5(1), 81–102. doi: 10.1016/0095-0696(78)90006-2\* 
+
+
+### Description
+# In the study, Harrison and Rubenfeld (1978) use housing data from the Boston metropolatian area to argue against the assumed theory that the value of a marginal improvement in air quality is not influenced by the current level of air pollution and current level of income in the housing market. To support their critique, the authors use independent variables (most notably nitrogen oxide levels or NOx) to show that the assumption of the hedonic pricing housing method that the damage for air pollution is linear does not reveal that marginal willingness to pay for improvements in air quality varies greatly on the existing air pollution levels in the area as well as the income of the population. It also does not take into account that the value placed on a marginal improvement in air quality is highly sensitive to a specification of the hedonic housing value equation.
+
+# The model used was laid out in four steps: Step one was to estimate the hedonic housing value equation using air pollution as a housing attribute. This consists of budget constraint 
+
+##y = x + p(h) + T***##
+
+#where y is the quantity pf private goods, h (h1, h2...hn) is the bundle of housing attributes, y is the annual household income, p(h) is the hedonic pricing function and T is the cost of transportation. 
+
+# The second step maximizes this equation, which assumes that each consumer knows (accurately) the characteristics of their housing attributes all the time, h is variable enough so that p(h) is continuous (with 1st and 2nd derivatives that are also continuous), "variation in housing characteristics are capitalized into differentials in housing prices"", and the market is in short run equilbrium. The derivatives of the maximized utility function with respect to the air pollution variable will be equal to the increased cost of buying a different house with the same attributes except for marginally better air quality or the household willingness-to-pay for marginal air pollution improvement. The final step is integrating this WTP from the old to the new air pollution concentration, which will be the estimate of the capitalized value of air quality improvement for each household. In this model the dependent variable used was housing value, while the independent variables were housing attributes such as the levels of notrous oxide, concentrations, property tax rate, timing of structures built, location to the Charles River, and others. However, air pollution level dat of Nox and PART show that marginal damage from air pollution is not linear and rises when both air pollution and income rise in the housing market. 
+
+### Discussion and analysis
+
+In this section, you will assess the validity and generality of the argument the authors make. In doing so, consider the following questions: 
+
+- Is the method the author(s) used suitable for demonstrating the claim they make? Why or why not?
+- How broadly applicable are the conclusions the authors reach? Do you expect their conclusions to apply in other settings (e.g. different geographic areas, with a different sample of people, firms, products, etc.)? Why or why not?
+- What extensions to the paper do you think would be interesting? How viable would these extensions be? E.g. would data be hard to find? Are there confounding variables that would make the extension challenging?
+- How interesting and/or convincing do you find the argument? Why?
+
+
+
