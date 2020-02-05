@@ -1,0 +1,33 @@
+---
+title: "Reflection on Harrison and Rubenfeld (1978).Rmd"
+author: "Abby Hanna"
+header-includes:
+    - \usepackage{setspace}\doublespacing
+output: pdf_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Citation
+
+#\*Harrison, D., & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. Journal of Environmental Economics and Management, 5(1), 81–102. doi: 10.1016/0095-0696(78)90006-2\* 
+
+
+## Description
+# In the study, Harrison and Rubenfeld (1978) use housing data from the Boston metropolatian area to argue against the assumed theory that the value of a marginal improvement in air quality is not influenced by the current level of air pollution and current level of income in the housing market. To support their critique, the authors use independent variables (most notably nitrogen oxide levels or NOx) to show that the assumption of the hedonic pricing housing method that the damage for air pollution is linear does not reveal that marginal willingness to pay for improvements in air quality varies greatly on the existing air pollution levels in the area as well as the income of the population. It also does not take into account that the value placed on a marginal improvement in air quality is highly sensitive to a specification of the hedonic housing value equation.
+
+# The model used was laid out in four steps: Step one was to estimate the hedonic housing value equation using air pollution as a housing attribute. This consists of budget constraint 
+
+##y = x + p(h) + T***##
+
+#where y is the quantity pf private goods, h (h1, h2...hn) is the bundle of housing attributes, y is the annual household income, p(h) is the hedonic pricing function and T is the cost of transportation. 
+
+# The second step maximizes this equation, which assumes that each consumer knows (accurately) the characteristics of their housing attributes all the time, h is variable enough so that p(h) is continuous (with 1st and 2nd derivatives that are also continuous), "variation in housing characteristics are capitalized into differentials in housing prices"", and the market is in short run equilbrium. The derivatives of the maximized utility function with respect to the air pollution variable will be equal to the increased cost of buying a different house with the same attributes except for marginally better air quality or the household willingness-to-pay for marginal air pollution improvement. The final step is integrating this WTP from the old to the new air pollution concentration, which will be the estimate of the capitalized value of air quality improvement for each household. In this model the dependent variable used was housing value, while the independent variables were housing attributes such as the levels of notrous oxide, concentrations, property tax rate, timing of structures built, location to the Charles River, and others. However, air pollution level dat of Nox and PART show that marginal damage from air pollution is not linear and rises when both air pollution and income rise in the housing market. 
+
+## Discussion and analysis
+
+# Hedonic pricing is the idea that the physical good on the market (such as a shed) is related to its characteristics, services and therefore value through what it provides (somewhere to keep gardening supplies). While property data is typically reliable, hedonic pricing only captures a consumer's willingness-to-pay and does not reflect the abundancy of taxes or interest rates that affect decision-making in the housing market that consmers do not always have perfect information about. The method used by the authors is suitable for the claim they are making; that the damage function for air pollution identical to all households is not a straight line. 
+
+# The method used here of getting the marginal willingness-to-pay for consumers and using it as the demand line is sufficient for housing market evaluation. It shows that the actual value consumers place on marginal air quality improvement is very sensitive to the equation itself. I believe that the authors chose a good area to execute the study, as Boston is a large port area, however the locations could be expaned upon to explore not only urban but rural areas. I would estimate that rural areas such as the midwestern United States faces similar problems with air pollution and housing, but receives little attention, as they are not economic centers such as cities are. This method can help with housing and transportation costs in several areas, not just cities. Since results do depend on specification of the model, this method can be tweaked to fit the policies of different locations based on the same types of dependent and independent variables.  
+
+# The argument being made here seemed to be saying that people who generate more income generate more marginal damage in terms of air pollution in the housing market. I believe this is an observable trait, but I believe that because I'm an economics student and I was trained to think like that. This paper is a good "water is wet" study that can debunk (using economic and methodological theory) in layman's terms the myth that low-income neighborhoods produce more air pollution and adds proof to the idea that corporations who make the most profit may be the ones who are also make the most pollution. 
