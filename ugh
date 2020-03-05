@@ -1,0 +1,91 @@
+---
+title: "Environmental Justice Analysis"
+author: "Abby Hanna"
+date: "2/20/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(stargazer)
+library(knitr)
+```
+
+First step is to get data on air quality. Document where you got it.
+
+```{r read in air quality}
+daily_aqi <- read_csv("daily_aqi_by_cbsa_2018.csv")
+```
+
+We need to summarize the daily air quality data. Let's look at: the mean, the 90th percentile, and the number of days air quality is unhealthy.
+
+```{r calculate air quality summary statistics}
+
+aqi_summary_stats <- daily_aqi %>% 
+  mutate(unhealthy = case_when(Category == "Unhealthy" ~ 1,
+                               Category != "Unhealthy" ~ 0)) %>% 
+  group_by(CBSA, `CBSA Code`) %>% 
+  summarize(mean_aqi = mean(AQI), 
+            aqi_p90 = quantile(AQI, probs = .9), 
+            days_unhealthy = sum(unhealthy))
+```
+
+The proceeding code was written to demonstrate the use of the `case_when()` function, which may be useful in your own data analysis. Given that we only have two cases to consider, the following code is more efficient.
+
+```{r calculate air quality summary statistics efficiently}
+
+aqi_summary_stats <- daily_aqi %>% 
+  mutate(unhealthy = Category == "Unhealthy") %>% 
+  group_by(CBSA, `CBSA Code`) %>% 
+  summarize(mean_aqi = mean(AQI), 
+            aqi_p90 = quantile(AQI, probs = .9), 
+            days_unhealthy = sum(unhealthy))
+```
+
+# Census data
+```{r read in census data}
+census_data<- read_csv("ACSDP5Y2018.DP05_data_with_overlays_2020-02-19T144619.csv")
+
+census_data_filtered <- census_data %>%
+  filter(GEO_ID != "id") %>%
+  select(GEO_ID, NAME, percent_black = DP05_0065PE, percent_hispanic = DP05_0071PE) %>% 
+  mutate(percent_black = as.numeric(percent_black),
+         percent_hispanic = as.numeric(percent_hispanic))
+```
+
+Next our job is to merge data together.
+
+```{r merge data together}
+census_data_recoded <- census_data_filtered %>% 
+  mutate(`CBSA Code` = as.numeric(substr(GEO_ID,10,15)))
+
+combined_data <- left_join(aqi_summary_stats, census_data_recoded)
+
+## Make a graph ! 
+
+ggplot(combined_data, aes(x = percent_black, y = mean_aqi)) + geom_point() + geom_smooth(method = "lm")
+
+```
+
+
+
+
+```{r read in more data -NYC drinking water}
+water_quality_data <- read_csv("Drinking_Water_Quality_Distribution_Monitoring_Data.csv") 
+```
+
+
+```{r create data frame from water quality data}
+water_nyc_df <- water_quality_data %>%
+  select(`Location`, `Residual Free Chlorine (mg/L)`, `Turbidity (NTU)`, `Sample class`) %>%
+  mutate(`Sample class` = as.character(water_quality_data$`Sample class`),
+         `Residual Free Chlorine (mg/L)` = as.character(water_quality_data$`Residual Free Chlorine (mg/L)`))
+View(water_nyc_df)
+```           
+           
+```{r water and census data together}
+merge(water_nyc_df, census_data_recoded)
+```
+
+
